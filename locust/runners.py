@@ -727,7 +727,7 @@ class MasterRunner(DistributedRunner):
                     logger.info(
                         "Client %r quit. Currently %i clients connected." % (msg.node_id, len(self.clients.ready))
                     )
-                    if self.worker_count - len(self.clients.missing) <= 0:
+                    if self.worker_count <= 0:
                         logger.info("The last worker quit, stopping test.")
                         self.stop()
                         if self.environment.parsed_options and self.environment.parsed_options.headless:
